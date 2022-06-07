@@ -642,17 +642,18 @@ peasants_republic = {
 		land_morale = 0.05
 		max_absolutism = -20
 		governing_capacity_modifier = -0.5
+		
 	}
 	effect = {
-		reverse_add_opinion = {
-			who = {
-				every_country = {
-					limit = {
-						government = monarchy
-					}
-				}
+		every_country = {
+			limit = { 
+				government = monarchy 
 			}
-			modifier = peasant_rabble
+			add_opinion = {
+				who = ROOT
+				modifier = peasant_rabble
+			}
+
 		}
 		hidden_effect = {
 			if = {

@@ -1,0 +1,3 @@
+﻿l_english:
+ peasants_flavour.1.t:0 "Rise of [event_target_peasant_republic.GetName]"
+ peasants_flavour.1.d:0 "We have tolerated the existence of the Peasants Republic of [event_target_peasant_republic.GetName] for centuries, mostly due to the fact their pitiful holdings were too poor and inhospitable. However, recently they have expanded their holdings and have become a small, prosperous regional power. So prosperous that some of our peasantry along the border have become discontent and seek to emulate the [event_target_peasant_republic.GetAdjective]. We must deal with those troublesome peasants and the upstart Peasants Republic of [event_target_peasant_republic.GetName]."

@@ -1,0 +1,104 @@
+namespace = peasants_flavour
+
+#Every monarchy neighbouring a relatively strong peasants' republic gets a cb to turn that country into a feudal state
+#And Rebellion and unrest in the provinces bordering the said peasants republic
+country_event = {
+	id = peasants_flavour.1
+	title = peasants_flavour.1.t
+	desc = peasants_flavour.1.d
+	picture = ANGRY_MOB_eventPicture
+
+	trigger = {
+		num_of_cities = 5
+		government = monarchy
+		any_owned_province = {
+			any_neighbor_province = {
+				NOT = { owned_by = ROOT }
+				is_city = yes
+				owner = {
+					has_reform = peasants_republic
+					NOT = { alliance_with = ROOT }
+					total_development = 150
+				}
+			}
+		}
+	}
+	mean_time_to_happen = {
+		months = 250
+	}
+	immediate = {
+		random_owned_province = {
+			limit = {
+				any_neighbor_province = {
+					NOT = { owned_by = ROOT }
+					is_city = yes
+					owner = {
+						has_reform = peasants_republic
+						NOT = { alliance_with = ROOT }
+						total_development = 150
+					}
+				}
+			}
+			random_neighbor_province = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					is_city = yes
+					owner = {
+						has_reform = peasants_republic
+						NOT = { alliance_with = ROOT }
+						total_development = 150
+					}
+				}
+				owner = {
+					set_country_flag = target_peasant_republic
+					save_event_target_as = event_target_peasant_republic
+				}
+				
+			}
+		}
+	}
+
+	option = {
+		name = peasants.flavour.1 #Bloody rabble rousers!
+		every_owned_province = {
+			limit = {
+				any_neighbor_province = {
+					NOT = { owned_by = ROOT }
+					is_city = yes
+					owner = {
+						has_reform = peasants_republic
+						NOT = { alliance_with = ROOT }
+						total_development = 150
+					}
+				}
+			}
+			add_province_modifier = {
+				name = peasant_agitation #Increases unrest by 10
+				duration = 30
+			}
+		}
+		random_owned_province = {
+			limit = {
+				any_neighbor_province = {
+					NOT = { owned_by = ROOT }
+					is_city = yes
+					owner = {
+						has_reform = peasants_republic
+						NOT = { alliance_with = ROOT }
+						total_development = 150
+					}
+				}
+			}
+			spawn_rebels = {
+				type = leadered_peasant_rebels
+				size = 2
+			}
+		}
+		add_casus_belli = {
+			type = cb_change_government
+			target = event_target:event_target_peasant_republic
+			months = 60
+		}
+	}
+
+}
