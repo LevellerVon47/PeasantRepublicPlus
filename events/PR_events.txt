@@ -102,3 +102,54 @@ country_event = {
 	}
 
 }
+#Adds "Peasant Rabble" -20 opinion modifer towards peasants republics
+country_event = {
+	id = peasants_flavour.2
+	hidden = yes
+
+	mean_time_to_happen = {
+		months = 0
+	}
+
+	trigger = {
+		government = monarchy
+		any_country = {
+			has_reform = peasants_republic
+			NOT = {
+				ROOT = {
+					has_opinion_modifier = {
+						who = PREV
+						modifier = peasant_rabble
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		every_country = {
+			limit = {
+				has_reform = peasants_republic
+				NOT = {
+					ROOT = {
+						has_opinion_modifier = {
+							who = PREV
+							modifier = peasant_rabble
+						}
+					}
+				}
+			}
+			save_event_target_as = peasant_rep_opinion			
+		}
+		add_opinion = {
+			who = event_target:peasant_rep_opinion
+			modifier = peasant_rabble
+		}
+	}
+
+	option = {
+		ai_chance = {
+			factor = 20
+		}
+	}
+}

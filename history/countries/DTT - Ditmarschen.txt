@@ -36,7 +36,3 @@ capital = 4141 #Ditmarschen
 	}
 	
 }
-
-
-
-#Annexed by Denmark

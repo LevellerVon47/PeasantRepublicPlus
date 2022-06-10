@@ -645,16 +645,6 @@ peasants_republic = {
 		
 	}
 	effect = {
-		every_country = {
-			limit = { 
-				government = monarchy 
-			}
-			add_opinion = {
-				who = ROOT
-				modifier = peasant_rabble
-			}
-
-		}
 		hidden_effect = {
 			if = {
 				limit = {
@@ -666,19 +656,6 @@ peasants_republic = {
 						which = GPW_counting_variable
 						value = 2
 					}
-				}
-			}
-		}
-	}
-	removed_effect = {
-		hidden_effect = {
-			every_country = {
-				limit = {
-					government = monarchy
-				}
-				remove_opinion = {
-					who = ROOT
-					modifier = peasant_rabble
 				}
 			}
 		}
@@ -1270,6 +1247,19 @@ cossacks_reform = {
 }
 
 #Republican Virtues
+
+kirchspiele_reform = {
+	icon = "monastic_elections_reform"
+	allow_normal_conversion = yes
+
+	potential = {
+		has_reform = peasants_republic
+	}
+	modifiers = {
+		custom_tooltip = estate_church_influence_temples_tt
+		church_influence_modifier = 0.1
+	}
+}
 
 republican_authoritarianism_reform = {
 	icon = "merchant"

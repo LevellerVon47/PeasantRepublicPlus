@@ -4854,5 +4854,5 @@ destroyed_al_aqsa_opinion = {
 ###################
 
 peasant_rabble = {
-	opinion = -20
+	opinion = -25
 }

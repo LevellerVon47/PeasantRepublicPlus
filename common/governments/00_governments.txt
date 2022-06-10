@@ -283,6 +283,7 @@ republic = {
 				liberte_reform
 				egalite_reform
 				fraternite_reform
+				kirchspiele_reform
 			}
 		}
 		frequent_elections_vs_consolidation_of_power = {
@@ -401,6 +402,10 @@ republic = {
 	exclusive_reforms = {
 		feuillant_reform
 		military_electorate_reform
+	}
+	exclusive_reforms = {
+		peasants_republic
+		landholders_reform
 	}
 }
 
